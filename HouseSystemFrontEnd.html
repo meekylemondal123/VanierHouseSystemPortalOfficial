@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+
+    <head>
+        <!--Setting the webpage title-->
+        <title>House System Portal</title>
+
+        <!--Bringing in the necessary scripts, and css files to improve the visuals of the webpage-->
+        <!--Bringing in the css file that will be used for the visuals for this webpage-->
+        <link rel="stylesheet" type="text/css" href="HouseSystemFrontEnd.css">
+        <script src="portalscripts.js"></script>
+        <!--Bringing in the google chart API-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            google.charts.load('current', {packages: ['corechart', 'bar']});
+        </script>
+        <!--Bringing in the link for the google fonts that will be used on this website-->
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
+    </head>
+
+
+    <body onload="loadFile()">
+        <!--This is the navigation class for the webpage, comprises of anything that is used for navigation purposes-->
+        <div class="navigation">
+
+            <!--Creating the links that will be used to quickly move around the webpage-->
+            <a href="#background-image">Welcome to Vangard!</a>
+            <a href="#background-information">What is the House System?</a>
+            <a href="#finding-team-title">What House Team am I On?</a>
+            <a href="#point-table">Total Points</a>
+        </div>
+
+        <br>
+        <br>
+
+          <!--This is the intro-vid class of the webpage, it has the cinematic for the house system, the one that was used 
+        in the holiday assembly/bash-->
+        <div class="intro-vid">
+            <h1>WELCOME TO VANGARD!</h1>
+            <video controls autoplay> 
+                <source src="Empires.mp4">
+            </video>
+        </div>
+
+
+
+
+        <!--This is the top class of the webpage, comprises of anything that will be met by the student when they first click on this webpage-->
+        <div class="top">
+            <div class="intro-text">
+                <p>Who will claim the Vanier Cup?</p>
+            </div>
+            <!--Bringing in the background image (pseudo) for the website-->
+            <img id="background-image" src="Cinematic Shot.png">
+        </div>
+
+        <!--This is the brief intro class of the webpage, comprises of information regarding the house system (what is Vangard, why is it relevant for
+            Vanier students, and where they can get more information)-->
+        <div class="brief-intro">
+            <h1 id="background-information">WHAT IS THE HOUSE SYSTEM?</h1>
+            <div class="rundown">
+                <!--This bit right here will include the text and the automatic slideshow-->
+                <p>Vangard was an ancient viking civilization that was divided into 4 house teams: Valour, 
+                Harmony, Justice and Wisdom. Each house had their own crest, and they were always competing against eachother
+                in order to get their hands on the prestigious Vanier Cup. Their time was over long ago, but now it is your turn
+                to continue the tradition! The students have been divided into one of the four house teams from Vangard, and your 
+                job is to gather points, through participating in school events, in order to bring your houseteam to glory! 
+                <br><br>
+                You can find what house team you are on through the <em>What House Team Am I on</em> section below!</p>
+            </div>
+            <div class="images">
+                <!--create an image of the same size that includes information on what the house represents-->
+                <img id="Harmony" src="Vanier_House_HarmonyPNG.png" onclick="flipImage('Harmony')">
+                <img id="Justice" src="Vanier_House_JusticePNG.png" onclick="flipImage('Justice')">
+                <img id="Valour" src="Vanier_House_ValourPNG.png" onclick="flipImage('Valour')">
+                <img id="Wisdom" src="Vanier_House_WisdomPNG.png" onclick="flipImage('Wisdom')">
+            </div>
+        </div>
+
+
+        <!--This is the finding-team class, it comprises of the part of the webpage where the user can input their information and get information 
+        regarding their house team (house colour, house team leads, and what their house represents)-->
+        <div class="finding-team">
+            <h1 id="finding-team-title">WHAT HOUSE TEAM AM I ON?</h1>
+            <div class="team-display">
+                <!--This is where the image of the house team crest will be, maybe initially set it so that it's an image of all of them
+                together? -->
+                <img id="which-house-image" src="Which House.png">
+            </div>
+            <div class="user-input">
+                <!--This is where the user will be able to input their first and last name-->
+                <p>It is now your turn to carry on the legacy of Vangard! Enter your name below to find what house you belong to!</p>
+                <p>Please input your name here!: </p>
+                <input type="text" id="user-input-text" name="user-input-box" value="Meekyle Mondal" onclick = "clearName()">
+                <br>
+                <br>
+                <!--Make sure this function is the same as the one on the github-->
+                <button onclick="findHouseTeam()">Find your house!</button>
+            </div>
+        </div>
+
+
+        <!--This is the total-points class, it comprises the information regarding total points, information is presented using a table, made using Google Charts
+            API"-->
+        <div class="total-points">
+            <h1 id="point-table">TOTAL POINTS</h1>
+            <div id="point-bargraph">
+            </div>
+            <script language = "JavaScript">
+                function drawChart() {
+                   // Defining the chart to be drawn using Google Charts APi
+                   var data = google.visualization.arrayToDataTable([
+                       ["House Team", "Points", {role: "style"}],
+                       ["Harmony", 7200, "green"],
+                       ["Justice", 7150, "yellow"],
+                       ["Valour", 6340, "red"],
+                       ["Wisdom", 3170, "blue"]
+                   ]);
+       
+                   var options = {title: 'House Points',
+                    legend: 'none'}; 
+       
+                   // Instantiate and draw the chart.
+                   var chart = new google.visualization.BarChart(document.getElementById('point-bargraph'));
+                   chart.draw(data, options);
+                }
+                google.charts.setOnLoadCallback(drawChart);
+             </script>
+        </div>
+        <!--This is just where my contact info can go along with who they can message to ask questions-->
+        <div class="footer">
+
+        </div>
+    </body>
+</html>
