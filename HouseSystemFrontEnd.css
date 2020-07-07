@@ -40,7 +40,7 @@ html {
 }
 
 /*Setting the properties for the titles (h1 elements) of each section*/
-.intro-text h1, .brief-intro h1, .finding-team h1, .total-points h1, .intro-vid h1{
+.intro-text h1, .brief-intro h1, .finding-team h1, .total-points h1, .top h1{
     font-family: 'Cinzel', serif;
     letter-spacing: 20px;
     text-align: center;
