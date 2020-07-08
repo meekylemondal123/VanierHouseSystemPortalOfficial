@@ -19,18 +19,18 @@ function findHouseTeam(){
     for (let i = 0; i < result.length; i++){
         if (result[i].toLowerCase().includes(userInput.toLowerCase())){
             let userArray = result[i].split(" ");
-            document.getElementById("which-house-image").src = userArray[userArray.length - 1] + " Description.png";
+            document.getElementById("which-house-image").src = "images/" + userArray[userArray.length - 1] + " Description.png";
         }
     }
 }
 
 function flipImage(houseTeamName){
     var img = document.getElementById(houseTeamName);
-    var fileName = "Vanier_House_" + houseTeamName + "PNG.png";
+    var fileName = "images/Vanier_House_" + houseTeamName + "PNG.png";
 
 
     if (img.getAttribute("src") === fileName){
-        img.src = houseTeamName + " Quote.png";
+        img.src = "images/" + houseTeamName + " Quote.png";
     } else {
         img.src = fileName;
     }
