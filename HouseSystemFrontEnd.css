@@ -66,7 +66,11 @@ html {
 }
 
 .main-title h1{
+    margin-top: 175px;
+    padding-top: 150px;
+    padding-bottom: 150px;
     margin-bottom: 3px;
+    font-size: 64px;
 }
 /*Setting the properties for the paragraph elements in the introduction section*/
 .intro-text p{
